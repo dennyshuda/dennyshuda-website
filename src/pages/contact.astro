@@ -1,0 +1,143 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const contactMethods = [
+	{
+		name: "Email",
+		value: "hello@denny.dev",
+		href: "mailto:hello@denny.dev",
+		icon: "sun",
+		color: "text-blue-600",
+	},
+	{
+		name: "LinkedIn",
+		value: "Denny Setyawan Huda",
+		href: "https://linkedin.com/in/denny",
+		icon: "sun",
+		color: "text-sky-700",
+	},
+	{
+		name: "Twitter / X",
+		value: "@denny_sh",
+		href: "https://twitter.com/denny",
+		icon: "sun",
+		color: "text-slate-900 dark:text-white",
+	},
+];
+---
+
+<Layout title="Contact | Denny Setyawan Huda">
+	<main class="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+			<section class="animate-in fade-in slide-in-from-left-5 duration-1000">
+				<h1 class="text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-8 italic">
+					Let's build <br />
+					<span class="text-blue-600">something great.</span>
+				</h1>
+				<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-12 max-w-md">
+					I'm always open to discussing new projects, creative ideas, or opportunities to be part of
+					your vision.
+					<span
+						class="block mt-4 font-bold text-slate-900 dark:text-white italic underline decoration-blue-500/30"
+						>Feel free to reach out!</span
+					>
+				</p>
+
+				<div class="space-y-6">
+					{
+						contactMethods.map((method) => (
+							<a
+								href={method.href}
+								class="group flex items-center gap-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-800"
+							>
+								<div
+									class={`w-12 h-12 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center ${method.color} group-hover:scale-110 transition-transform`}
+								>
+									<Icon name={method.icon} size={24} />
+								</div>
+								<div>
+									<p class="text-xs font-bold uppercase tracking-widest text-slate-400">
+										{method.name}
+									</p>
+									<p class="text-lg font-medium text-slate-900 dark:text-white">{method.value}</p>
+								</div>
+							</a>
+						))
+					}
+				</div>
+			</section>
+
+			<section
+				class="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[3rem] shadow-2xl shadow-blue-500/5 border border-slate-100 dark:border-slate-800 animate-in fade-in slide-in-from-right-5 duration-1000"
+			>
+				<form action="#" class="space-y-6">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div class="space-y-2">
+							<label for="name" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
+								>Full Name</label
+							>
+							<input
+								type="text"
+								id="name"
+								placeholder="John Doe"
+								class="w-full px-6 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white"
+							/>
+						</div>
+						<div class="space-y-2">
+							<label for="email" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
+								>Email Address</label
+							>
+							<input
+								type="email"
+								id="email"
+								placeholder="john@example.com"
+								class="w-full px-6 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white"
+							/>
+						</div>
+					</div>
+
+					<div class="space-y-2">
+						<label for="subject" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
+							>Subject</label
+						>
+						<input
+							type="text"
+							id="subject"
+							placeholder="Project Inquiry"
+							class="w-full px-6 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white"
+						/>
+					</div>
+
+					<div class="space-y-2">
+						<label for="message" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
+							>Tell me more</label
+						>
+						<textarea
+							id="message"
+							rows="5"
+							placeholder="What's on your mind?"
+							class="w-full px-6 py-4 rounded-3xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white resize-none"
+						></textarea>
+					</div>
+
+					<button
+						type="submit"
+						class="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all active:scale-95 flex items-center justify-center gap-3 group"
+					>
+						Send Message
+						<Icon
+							name="sun"
+							size={20}
+							class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+						/>
+					</button>
+				</form>
+			</section>
+		</div>
+
+		<div class="mt-32 text-center text-slate-400 text-sm italic">
+			<p>I usually respond within 24-48 hours. Looking forward to hearing from you!</p>
+		</div>
+	</main>
+</Layout>

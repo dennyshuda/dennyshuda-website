@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const coreValues = [
+	{
+		title: "Clean Code",
+		desc: "Writing code that is not only functional but also readable and maintainable.",
+		icon: "sun",
+	},
+	{
+		title: "User Centric",
+		desc: "Putting the user's experience at the heart of every design decision.",
+		icon: "sun",
+	},
+	{
+		title: "Continuous Learning",
+		desc: "Always exploring new technologies to stay at the forefront of digital trends.",
+		icon: "sun",
+	},
+];
+---
+
+<Layout title="About | Denny Setyawan Huda">
+	<main class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20">
+		<section class="mb-20 animate-in fade-in slide-in-from-bottom-5 duration-1000">
+			<h1
+				class="text-5xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-8"
+			>
+				A little bit <span class="text-blue-600">about me.</span>
+			</h1>
+
+			<div class="prose prose-slate dark:prose-invert prose-lg max-w-none">
+				<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+					I'm <span class="text-slate-900 dark:text-white font-bold">Denny Setyawan Huda</span>, a
+					passionate Frontend Developer based in Indonesia. I bridge the gap between complex backend
+					logic and intuitive, beautiful user interfaces.
+				</p>
+				<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+					My journey in the tech world started with a curiosity about how things work on the
+					internet. Today, I specialize in building high-performance web applications using <span
+						class="text-blue-600 font-medium">React, Next.js, and Astro</span
+					>, with a strong focus on clean animation and seamless user experience.
+				</p>
+			</div>
+		</section>
+
+		<section class="mb-32">
+			<div class="flex items-center gap-4 mb-12">
+				<h2 class="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-widest">
+					Philosophy
+				</h2>
+				<div class="h-px grow bg-slate-200 dark:bg-slate-800"></div>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{
+					coreValues.map((value) => (
+						<div class="group p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition-all">
+							<div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+								<Icon name={value.icon} size={24} />
+							</div>
+							<h3 class="font-bold text-slate-900 dark:text-white mb-2">{value.title}</h3>
+							<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{value.desc}</p>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<section
+			class="mb-32 bg-slate-50 dark:bg-slate-900/50 rounded-[2.5rem] p-10 md:p-16 border border-slate-100 dark:border-slate-800"
+		>
+			<h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Outside of work...</h2>
+			<p class="text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl italic">
+				"When I'm not staring at a code editor, you'll probably find me exploring local coffee
+				shops, reading sci-fi novels, or experimenting with digital photography. I believe a
+				balanced life is the key to maintaining creativity in solving technical problems."
+			</p>
+
+			<div class="mt-10 flex gap-4">
+				<a
+					href="https://instagram.com"
+					class="p-3 bg-white dark:bg-slate-800 rounded-full shadow-sm hover:text-pink-500 transition-colors"
+				>
+					<Icon name="sun" size={20} />
+				</a>
+				<a
+					href="https://linkedin.com"
+					class="p-3 bg-white dark:bg-slate-800 rounded-full shadow-sm hover:text-blue-600 transition-colors"
+				>
+					<Icon name="sun" size={20} />
+				</a>
+			</div>
+		</section>
+
+		<section class="text-center">
+			<p class="text-slate-500 dark:text-slate-400 mb-4">Wanna build something together?</p>
+			<a
+				href="/contact"
+				class="text-2xl font-black text-slate-900 dark:text-white hover:text-blue-600 transition-colors underline decoration-blue-500/30 decoration-4 underline-offset-8"
+			>
+				Let's get in touch →
+			</a>
+		</section>
+	</main>
+</Layout>

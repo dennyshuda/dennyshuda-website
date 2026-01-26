@@ -1,9 +1,183 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import { Icon } from "astro-icon/components";
+import { experiences, services, stacks } from "../constant";
+import Layout from "../layouts/Layout.astro";
+import ExperienceItem from "../components/experience-item.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Software Developer | Denny Setyawan Huda">
+	<main class="relative z-10 max-w-4xl mx-auto px-6 pt-28 pb-20">
+		<section>
+			<span
+				class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 text-xs font-bold tracking-widest uppercase duration-1000"
+			>
+				📍 Based in Surabaya • Remote Friendly
+			</span>
+
+			<h1
+				class="text-6xl md:text-8xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-8 duration-500 delay-150"
+			>
+				Hi, I'm <span
+					class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-500 to-emerald-500"
+					>Denny Setyawan Huda</span
+				>
+			</h1>
+
+			<div class="flex flex-col md:flex-row md:items-end gap-6 md:gap-12 duration-500 delay-300">
+				<div class="relative">
+					<h2
+						class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-200 z-10 relative"
+					>
+						Software Developer
+					</h2>
+					<div
+						class="absolute -bottom-2 -left-2 w-full h-4 bg-emerald-100 dark:bg-emerald-900/30 z-0 rotate-1"
+					>
+					</div>
+				</div>
+
+				<p
+					class="text-lg text-slate-500 dark:text-slate-400 max-w-md leading-relaxed border-l-2 border-blue-600 pl-6 md:mb-1"
+				>
+					Frontend sorcerer by day, security explorer by night. Building seamless web experiences
+					that are fast, beautiful, and resilient. Currently weaving magic from Indonesia to the
+					world.
+				</p>
+			</div>
+
+			<div class="mt-12 flex items-center gap-6 duration-1000 delay-500">
+				<a
+					href="/contact"
+					class="flex items-center gap-2 font-bold text-slate-900 dark:text-white group"
+				>
+					Let's Talk
+					<span class="group-hover:translate-x-2 transition-transform duration-300">→</span>
+				</a>
+				<div class="h-1 w-1 rounded-full bg-slate-300"></div>
+				<a href="/cv.pdf" class="text-slate-500 hover:text-blue-600 transition-colors"
+					>Download CV</a
+				>
+			</div>
+		</section>
+
+		<section class="py-24">
+			<div class="flex items-center gap-4 mb-12">
+				<h2 class="text-3xl font-black text-slate-900 dark:text-white">What I Do</h2>
+				<div class="h-px grow bg-slate-200 dark:bg-slate-800"></div>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{
+					services.map((service) => (
+						<div class="group relative p-8 rounded-[2.5rem] bg-transparent border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+							<span
+								class={`inline-block px-3 py-1 mb-6 rounded-full text-[10px] font-black uppercase tracking-[0.2em] ${service.bg} ${service.accent}`}
+							>
+								{service.status}
+							</span>
+
+							<div
+								class={`mb-6 text-4xl transition-transform duration-500 group-hover:scale-110 ${service.accent}`}
+							>
+								<Icon name={service.icon} />
+							</div>
+
+							<h3 class="text-2xl font-black text-slate-900 dark:text-white mb-4 leading-tight">
+								{service.title}
+							</h3>
+
+							<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 italic">
+								{service.desc}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="mb-32 mt-10">
+			<div class="flex items-center gap-4 mb-12">
+				<h2 class="text-3xl font-black text-slate-900 dark:text-white">Tech Stack</h2>
+				<div class="h-px grow bg-slate-200 dark:bg-slate-800"></div>
+			</div>
+
+			<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+				Through my journey as a developer, I've explored various tools and technologies. This is my <span
+					class="text-blue-600 font-bold italic">ever growing ecosystem</span
+				> a mix of stacks I use daily, technologies I've mastered, and frameworks I've familiarized myself
+				with to build seamless digital experiences.
+			</p>
+
+			<div class="relative py-10 overflow-hidden -mx-6">
+				<div
+					class="absolute inset-y-0 left-0 w-24 md:w-48 bg-linear-to-r from-white dark:from-[#111] to-transparent z-10 pointer-events-none"
+				>
+				</div>
+				<div
+					class="absolute inset-y-0 right-0 w-24 md:w-48 bg-linear-to-l from-white dark:from-[#111] to-transparent z-10 pointer-events-none"
+				>
+				</div>
+
+				<div
+					class="flex w-fit animate-[marquee_50s_linear_infinite] hover:[animation-play-state:paused]"
+				>
+					{
+						[1, 2].map(() => (
+							<div class="flex items-center gap-8 px-4">
+								{stacks.map((tech) => (
+									<div class="group flex items-center gap-4 px-6 py-4 transition-all duration-500 hover:scale-105 hover:border-blue-500/50">
+										<div class="group-hover:grayscale-0 transition-all duration-500">
+											<Icon name={tech.icon} class="text-3xl md:text-4xl" />
+										</div>
+										<span class="text-lg md:text-xl font-bold tracking-tighter text-slate-400 dark:text-slate-500 transition-colors">
+											{tech.name}
+										</span>
+									</div>
+								))}
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<p class="mt-8 text-sm text-slate-400 dark:text-slate-500 italic text-center md:text-left">
+				* Always curious, always learning. Currently exploring new ways to optimize web performance.
+			</p>
+		</section>
+
+		<section class="mb-32">
+			<div class="flex items-center gap-4 mb-12">
+				<h2 class="text-3xl font-black text-slate-900 dark:text-white">Experience Journey</h2>
+				<div class="h-px grow bg-slate-200 dark:bg-slate-800"></div>
+			</div>
+
+			<div class="relative">
+				<div
+					class="absolute left-2.75 md:left-38.25 top-2 bottom-2 w-0.5 bg-linear-to-b from-blue-600 via-slate-200 to-slate-100 dark:via-slate-800 dark:to-slate-900"
+				>
+				</div>
+
+				<div class="space-y-12">
+					{experiences.map((exp) => <ExperienceItem exp={exp} />)}
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	@keyframes marquee {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+	.animate-marquee {
+		animation: marquee 30s linear infinite;
+		&:hover {
+			animation-play-state: paused;
+		}
+	}
+</style>

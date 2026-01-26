@@ -1,0 +1,58 @@
+---
+interface Props {
+	exp: {
+		period: string;
+		type: string;
+		role: string;
+		company: string;
+		description: string;
+		skills: string[];
+	};
+}
+const { exp } = Astro.props;
+---
+
+<div class="relative flex flex-col md:flex-row gap-8 md:gap-16 group">
+	<div
+		class="absolute left-1.5 md:left-37 top-2 w-3 h-3 rounded-full bg-white border-2 border-blue-600 z-10 group-hover:scale-150 group-hover:bg-blue-600 transition-all duration-300"
+	>
+	</div>
+
+	<div class="md:w-32 pt-1 pl-8 md:pl-0 md:text-right shrink-0">
+		<p class="text-sm font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
+			{exp.period}
+		</p>
+		<span class="text-[10px] font-bold text-slate-400 uppercase">{exp.type}</span>
+	</div>
+
+	<div class="grow pl-8 md:pl-0 pb-4">
+		<div
+			class="p-6 md:p-8 rounded-4xl bg-white dark:bg-[#111] border border-slate-100 dark:border-slate-800 group-hover:border-blue-500/30 group-hover:shadow-xl group-hover:shadow-blue-500/5 transition-all duration-500"
+		>
+			<h3
+				class="text-2xl font-black text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors"
+			>
+				{exp.role}
+			</h3>
+			<p class="text-lg font-bold text-slate-500 dark:text-slate-400 mb-4">
+				{exp.company}
+			</p>
+
+			<p
+				class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 max-w-2xl text-sm md:text-base"
+			>
+				{exp.description}
+			</p>
+
+			<div class="flex flex-wrap gap-2">
+				{
+					exp.skills.map((skill) => (
+						<span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 border border-slate-200 dark:border-slate-800 px-2 py-1 rounded-md">
+							{skill}
+						</span>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</div>

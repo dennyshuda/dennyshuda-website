@@ -1,0 +1,114 @@
+---
+import { Icon } from "astro-icon/components";
+import { menus } from "../constant";
+---
+
+<nav id="nav" class="fixed left-0 right-0 top-0 p-5 z-30 transition-all duration-300">
+	<div class="flex max-w-7xl mx-auto justify-between items-center">
+		<a
+			href="/"
+			class="text-xl dark:text-white font-extrabold tracking-tighter hover:text-brand-primary transition-colors"
+		>
+			D.
+		</a>
+
+		<div class="flex items-center space-x-3">
+			<div class="hidden md:flex gap-6 items-center">
+				{
+					menus.map((menu) => (
+						<a
+							href={menu.href}
+							class="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+						>
+							{menu.label}
+						</a>
+					))
+				}
+			</div>
+
+			<a
+				href="https://github.com/dennyshuda"
+				target="_blank"
+				class="p-2.5 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300 active:scale-95"
+			>
+				<Icon name="brand-github" size={20} class="dark:text-white" />
+			</a>
+
+			<button
+				id="theme-toggle"
+				type="button"
+				class="p-2.5 cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300 active:scale-95"
+				aria-label="Toggle Dark Mode"
+			>
+				<div id="sun-icon" class="block dark:hidden">
+					<Icon name="sun" size={20} />
+				</div>
+
+				<div id="moon-icon" class="hidden dark:text-white dark:block">
+					<Icon name="moon" size={20} />
+				</div>
+			</button>
+
+			<button
+				id="menu-toggle"
+				type="button"
+				class="md:hidden p-2.5 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-300"
+			>
+				<Icon name="menu-2" size={20} class="dark:text-white" id="menu-icon-svg" />
+			</button>
+		</div>
+	</div>
+
+	<div
+		id="mobile-menu"
+		class="absolute top-full left-0 right-0 hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-gray-100 dark:border-slate-800 p-6 flex-col gap-4 shadow-xl md:hidden transition-all duration-300"
+	>
+		{
+			menus.map((menu) => (
+				<a
+					href={menu.href}
+					class="text-lg font-medium text-gray-500 dark:text-gray-300 py-2 border-b border-gray-50 dark:border-slate-800 last:border-none"
+				>
+					{menu.label}
+				</a>
+			))
+		}
+	</div>
+</nav>
+
+<script>
+	const buttonElement = document.getElementById("theme-toggle") as HTMLButtonElement;
+	buttonElement.addEventListener("click", () => {
+		const element = document.documentElement;
+		element.classList.toggle("dark");
+
+		const isDark = element.classList.contains("dark");
+		localStorage.setItem("theme", isDark ? "dark" : "light");
+	});
+
+	const nav = document.getElementById("nav") as HTMLElement;
+
+	window.addEventListener("scroll", () => {
+		if (window.scrollY > 40) {
+			nav.classList.add("backdrop-blur-lg");
+		} else {
+			nav.classList.remove("backdrop-blur-lg");
+		}
+	});
+
+	const menuToggle = document.getElementById("menu-toggle") as HTMLElement;
+	const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
+
+	menuToggle?.addEventListener("click", () => {
+		mobileMenu?.classList.toggle("hidden");
+		mobileMenu?.classList.toggle("flex");
+	});
+
+	const mobileLinks = mobileMenu?.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>;
+	mobileLinks?.forEach((link) => {
+		link.addEventListener("click", () => {
+			mobileMenu?.classList.add("hidden");
+			mobileMenu?.classList.remove("flex");
+		});
+	});
+</script>

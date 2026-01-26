@@ -1,0 +1,120 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+const projects = [
+	{
+		title: "Nexus Analytics Dashboard",
+		description:
+			"A real-time data visualization platform built for high-scale enterprise monitoring.",
+		tech: ["Next.js", "TypeScript", "Recharts"],
+		link: "#",
+		image: "bg-gradient-to-br from-blue-600 to-indigo-700",
+		size: "large",
+	},
+	{
+		title: "EcoSphere Mobile",
+		description: "Tracking personal carbon footprint with gamified rewards.",
+		tech: ["React Native", "Firebase"],
+		link: "#",
+		image: "bg-gradient-to-br from-emerald-400 to-teal-600",
+		size: "small",
+	},
+	{
+		title: "Nova UI Kits",
+		description: "Open-source library for minimalist design systems.",
+		tech: ["Tailwind", "Astro"],
+		link: "#",
+		image: "bg-gradient-to-br from-orange-400 to-rose-500",
+		size: "small",
+	},
+	{
+		title: "Aura Music Player",
+		description: "Immersive web-based audio player with custom GSAP visualizers.",
+		tech: ["React", "GSAP", "Web Audio API"],
+		link: "#",
+		image: "bg-gradient-to-br from-purple-600 to-fuchsia-700",
+		size: "medium",
+	},
+];
+---
+
+<Layout title="Projects | Denny Setyawan Huda">
+	<main class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20">
+		<header class="max-w-3xl mb-20 animate-in fade-in slide-in-from-bottom-5 duration-1000">
+			<h1 class="text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-6">
+				Selected <span class="text-blue-600">Works.</span>
+			</h1>
+			<p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+				A collection of digital products, experiments, and open-source contributions crafted with
+				precision and passion.
+			</p>
+		</header>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+			{
+				projects.map((project) => (
+					<a
+						href={project.link}
+						class={`group relative overflow-hidden rounded-[2.5rem] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl 
+          ${project.size === "large" ? "md:col-span-2" : ""} 
+          ${project.size === "medium" ? "lg:col-span-2" : ""}`}
+					>
+						<div
+							class={`absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 ${project.image}`}
+						/>
+
+						<div class="relative h-full p-8 flex flex-col justify-between">
+							<div class="flex justify-between items-start">
+								<div class="flex flex-wrap gap-2">
+									{project.tech.map((t) => (
+										<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-bold uppercase tracking-widest rounded-full">
+											{t}
+										</span>
+									))}
+								</div>
+								<div class="p-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
+									<Icon name="sun" size={20} />
+								</div>
+							</div>
+
+							<div>
+								<h3 class="text-2xl font-black text-slate-900 dark:text-white mb-2 leading-tight">
+									{project.title}
+								</h3>
+								<p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2 max-w-md">
+									{project.description}
+								</p>
+							</div>
+						</div>
+					</a>
+				))
+			}
+		</div>
+
+		<section class="mt-40 text-center py-20 border-t border-slate-100 dark:border-slate-800">
+			<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Want to see more?</h2>
+			<div class="flex justify-center gap-6">
+				<a
+					href="https://github.com"
+					class="flex items-center gap-2 font-bold hover:text-blue-600 transition-colors"
+				>
+					<Icon name="brand-github" size={24} /> GitHub
+				</a>
+				<a
+					href="https://dribbble.com"
+					class="flex items-center gap-2 font-bold hover:text-pink-500 transition-colors"
+				>
+					<Icon name="sun" size={24} /> Dribbble
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	/* Efek Glassmorphism halus untuk card */
+	.group {
+		will-change: transform;
+	}
+</style>
