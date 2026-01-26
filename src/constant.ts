@@ -86,3 +86,27 @@ export const experiences = [
 		skills: ["TypeScript", "React.js", "Chakra UI"],
 	},
 ];
+
+export const contactMethods = [
+	{
+		name: "Instagram",
+		value: "@dennyshuda",
+		href: "https://instagram.com/dennyshuda",
+		icon: "brand-instagram",
+		color: "text-pink-600",
+	},
+	{
+		name: "LinkedIn",
+		value: "@dennyshuda",
+		href: "https://linkedin.com/in/dennyshuda",
+		icon: "brand-linkedin",
+		color: "text-blue-700",
+	},
+	{
+		name: "GitHub",
+		value: "@dennyshuda",
+		href: "https://github.com/dennyshuda",
+		icon: "github",
+		color: "text-slate-900 dark:text-white",
+	},
+];

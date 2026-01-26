@@ -1,30 +1,7 @@
 ---
+import { contactMethods } from "../constant";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-
-const contactMethods = [
-	{
-		name: "Email",
-		value: "hello@denny.dev",
-		href: "mailto:hello@denny.dev",
-		icon: "sun",
-		color: "text-blue-600",
-	},
-	{
-		name: "LinkedIn",
-		value: "Denny Setyawan Huda",
-		href: "https://linkedin.com/in/denny",
-		icon: "sun",
-		color: "text-sky-700",
-	},
-	{
-		name: "Twitter / X",
-		value: "@denny_sh",
-		href: "https://twitter.com/denny",
-		icon: "sun",
-		color: "text-slate-900 dark:text-white",
-	},
-];
 ---
 
 <Layout title="Contact | Denny Setyawan Huda">
@@ -49,6 +26,7 @@ const contactMethods = [
 						contactMethods.map((method) => (
 							<a
 								href={method.href}
+								target="_blank"
 								class="group flex items-center gap-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-800"
 							>
 								<div
@@ -123,7 +101,8 @@ const contactMethods = [
 
 					<button
 						type="submit"
-						class="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all active:scale-95 flex items-center justify-center gap-3 group"
+						disabled
+						class="w-full cursor-not-allowed py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all active:scale-95 flex items-center justify-center gap-3 group"
 					>
 						Send Message
 						<Icon
