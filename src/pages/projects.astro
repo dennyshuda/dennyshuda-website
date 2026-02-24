@@ -4,37 +4,58 @@ import { Icon } from "astro-icon/components";
 
 const projects = [
 	{
-		title: "Nexus Analytics Dashboard",
+		title: "Portobit - Micro-SaaS Showcase Portfolio",
 		description:
-			"A real-time data visualization platform built for high-scale enterprise monitoring.",
-		tech: ["Next.js", "TypeScript", "Recharts"],
+			"Portobit is a Software‑as‑a‑Service (SaaS) application for creating instant online portfolios.",
+		tech: ["Nuxt", "TypeScript", "Supabase"],
 		link: "#",
 		image: "bg-gradient-to-br from-blue-600 to-indigo-700",
 		size: "large",
 	},
 	{
-		title: "EcoSphere Mobile",
-		description: "Tracking personal carbon footprint with gamified rewards.",
-		tech: ["React Native", "Firebase"],
+		title: "Indonesian Local Fake Data API",
+		description:
+			"The Indo Mock API is a Hono.js-based backend service designed to generate fake identity data specifically for the Indonesian context. It's especially useful for local developers for application testing, database seeding, or load testing with realistic data.",
+		tech: ["Hono", "Bun", "TypeScript"],
 		link: "#",
 		image: "bg-gradient-to-br from-emerald-400 to-teal-600",
 		size: "small",
 	},
 	{
-		title: "Nova UI Kits",
-		description: "Open-source library for minimalist design systems.",
-		tech: ["Tailwind", "Astro"],
+		title: "Mini Quiz Online Platform",
+		description:
+			"A modern, responsive, elegant web-based quiz platform application built using React Router v7 (Vite-based).",
+		tech: ["React Router v7", "TypeScript", "Tailwind"],
 		link: "#",
-		image: "bg-gradient-to-br from-orange-400 to-rose-500",
+		image: "bg-gradient-to-br from-purple-600 to-fuchsia-700",
 		size: "small",
 	},
 	{
-		title: "Aura Music Player",
-		description: "Immersive web-based audio player with custom GSAP visualizers.",
-		tech: ["React", "GSAP", "Web Audio API"],
+		title: "Prima Tehnik Lombok Rental Genset Website",
+		description:
+			"A sleek and professional company profile website for Prima Tehnik Lombok, a generator rental service. The site effectively showcases their range of services and makes it easy for customers to get in touch.",
+		tech: ["Next.js", "TypeScript", "Supabase"],
 		link: "#",
-		image: "bg-gradient-to-br from-purple-600 to-fuchsia-700",
+		image: "bg-gradient-to-br from-orange-400 to-rose-500",
 		size: "medium",
+	},
+	{
+		title: "[Thesis] Semantic Web-Based Journal Repository",
+		description:
+			"A thesis project developing a journal repository using Semantic Web technologies. It leverages SPARQL for advanced, context-aware queries, enabling more intelligent data discovery.",
+		tech: ["Next.js", "TypeScript", "SPARQL"],
+		link: "#",
+		image: "bg-gradient-to-br from-slate-500 to-slate-700",
+		size: "medium",
+	},
+	{
+		title: "Medium Clone",
+		description:
+			"A full-stack clone of the Medium blogging platform, built with Laravel and Alpine.js. It mimics the core functionalities, offering a clean interface for writing and reading articles.",
+		tech: ["Laravel", "Alpine.js", "Blade"],
+		link: "#",
+		image: "bg-gradient-to-br from-yellow-400 to-amber-500",
+		size: "small",
 	},
 ];
 ---
@@ -72,9 +93,6 @@ const projects = [
 											{t}
 										</span>
 									))}
-								</div>
-								<div class="p-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
-									<Icon name="sun" size={20} />
 								</div>
 							</div>
 
