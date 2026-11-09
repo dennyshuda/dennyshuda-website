@@ -1,122 +1,61 @@
 ---
-import { contactMethods } from "../constant";
 import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
+import { contactMethods } from "../constant";
+import { cn } from "../lib/cn";
+
+const shell = "mx-auto w-[calc(100%-32px)] max-w-[1180px] min-[721px]:w-[calc(100%-48px)]";
+const eyebrow = "text-[11px] font-semibold uppercase tracking-[.16em] text-muted";
+const displayTitle =
+	"m-0 font-display text-[clamp(62px,11vw,132px)] font-semibold uppercase leading-[.86] tracking-[-.035em]";
 ---
 
-<Layout title="Contact | Denny Setyawan Huda">
-	<main class="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-20">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-			<section class="animate-in fade-in slide-in-from-left-5 duration-1000">
-				<h1 class="text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-8 italic">
-					Let's build <br />
-					<span class="text-blue-600">something great.</span>
+<Layout title="Contact — Denny Setyawan Huda">
+	<main class={cn(shell, "min-h-[70vh] py-16 min-[721px]:py-[clamp(64px,9vw,120px)]")}>
+		<div class="grid gap-12 min-[721px]:grid-cols-2 min-[721px]:gap-12">
+			<section>
+				<p class={eyebrow}>Contact</p>
+				<h1 class={displayTitle}>
+					Let's build<br /><span class="text-accent">something</span><br />great.
 				</h1>
-				<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-12 max-w-md">
+				<p class="mt-7 max-w-107.5 text-[clamp(16px,1.6vw,19px)] leading-[1.75] text-muted">
 					I'm always open to discussing new projects, creative ideas, or opportunities to be part of
-					your vision.
-					<span
-						class="block mt-4 font-bold text-slate-900 dark:text-white italic underline decoration-blue-500/30"
-						>Feel free to reach out!</span
-					>
+					your vision. Feel free to reach out.
 				</p>
-
-				<div class="space-y-6">
+			</section>
+			<section aria-label="Contact methods">
+				<p class={eyebrow}>Reach me directly</p>
+				<div class="border-t border-line">
 					{
 						contactMethods.map((method) => (
 							<a
+								class="group flex items-center justify-between gap-5 border-b border-line py-5.25"
 								href={method.href}
 								target="_blank"
-								class="group flex items-center gap-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-800"
+								rel="noreferrer"
 							>
-								<div
-									class={`w-12 h-12 rounded-xl bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center ${method.color} group-hover:scale-110 transition-transform`}
-								>
-									<Icon name={method.icon} size={24} />
-								</div>
 								<div>
-									<p class="text-xs font-bold uppercase tracking-widest text-slate-400">
-										{method.name}
-									</p>
-									<p class="text-lg font-medium text-slate-900 dark:text-white">{method.value}</p>
+									<>
+										<strong class="font-display text-[27px] font-semibold uppercase leading-none">
+											{method.name}
+										</strong>
+										<br />
+										<span class="text-[13px] text-muted">{method.value}</span>
+									</>
 								</div>
+								<span
+									class="text-[22px] text-accent transition-transform duration-200 group-hover:translate-x-0.75 group-hover:-translate-y-0.75 motion-reduce:transition-none"
+									aria-hidden="true"
+								>
+									↗
+								</span>
 							</a>
 						))
 					}
 				</div>
+				<p class="mt-6 max-w-130 text-base leading-[1.8] text-muted">
+					I usually respond within 24–48 hours. Looking forward to hearing from you!
+				</p>
 			</section>
-
-			<section
-				class="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[3rem] shadow-2xl shadow-blue-500/5 border border-slate-100 dark:border-slate-800 animate-in fade-in slide-in-from-right-5 duration-1000"
-			>
-				<form action="#" class="space-y-6">
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-						<div class="space-y-2">
-							<label for="name" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
-								>Full Name</label
-							>
-							<input
-								type="text"
-								id="name"
-								placeholder="John Doe"
-								class="w-full px-6 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white"
-							/>
-						</div>
-						<div class="space-y-2">
-							<label for="email" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
-								>Email Address</label
-							>
-							<input
-								type="email"
-								id="email"
-								placeholder="john@example.com"
-								class="w-full px-6 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white"
-							/>
-						</div>
-					</div>
-
-					<div class="space-y-2">
-						<label for="subject" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
-							>Subject</label
-						>
-						<input
-							type="text"
-							id="subject"
-							placeholder="Project Inquiry"
-							class="w-full px-6 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white"
-						/>
-					</div>
-
-					<div class="space-y-2">
-						<label for="message" class="text-sm font-bold text-slate-700 dark:text-slate-300 ml-2"
-							>Tell me more</label
-						>
-						<textarea
-							id="message"
-							rows="5"
-							placeholder="What's on your mind?"
-							class="w-full px-6 py-4 rounded-3xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-blue-500 transition-all outline-none text-slate-900 dark:text-white resize-none"
-						></textarea>
-					</div>
-
-					<button
-						type="submit"
-						disabled
-						class="w-full cursor-not-allowed py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all active:scale-95 flex items-center justify-center gap-3 group"
-					>
-						Send Message
-						<Icon
-							name="sun"
-							size={20}
-							class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-						/>
-					</button>
-				</form>
-			</section>
-		</div>
-
-		<div class="mt-32 text-center text-slate-400 text-sm italic">
-			<p>I usually respond within 24-48 hours. Looking forward to hearing from you!</p>
 		</div>
 	</main>
 </Layout>

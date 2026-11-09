@@ -2,14 +2,52 @@ export const menus = [
 	{ label: "About", href: "/about" },
 	{ label: "Projects", href: "/projects" },
 	{ label: "Contact", href: "/contact" },
-	{ label: "Blog", href: "/blog" },
+];
+
+export const projects = [
+	{
+		title: "Portobit - Micro-SaaS Showcase Portfolio",
+		description:
+			"Portobit is a Software-as-a-Service (SaaS) application for creating instant online portfolios.",
+		tech: ["Nuxt", "TypeScript", "Supabase"],
+	},
+	{
+		title: "Indonesian Local Fake Data API",
+		description:
+			"The Indo Mock API is a Hono.js-based backend service designed to generate fake identity data specifically for the Indonesian context. It's especially useful for local developers for application testing, database seeding, or load testing with realistic data.",
+		tech: ["Hono", "Bun", "TypeScript"],
+	},
+	{
+		title: "Mini Quiz Online Platform",
+		description:
+			"A modern, responsive, elegant web-based quiz platform application built using React Router v7 (Vite-based).",
+		tech: ["React Router v7", "TypeScript", "Tailwind"],
+	},
+	{
+		title: "Prima Tehnik Lombok Rental Genset Website",
+		description:
+			"A sleek and professional company profile website for Prima Tehnik Lombok, a generator rental service. The site effectively showcases their range of services and makes it easy for customers to get in touch.",
+		tech: ["Next.js", "TypeScript", "Supabase"],
+	},
+	{
+		title: "[Thesis] Semantic Web-Based Journal Repository",
+		description:
+			"A thesis project developing a journal repository using Semantic Web technologies. It leverages SPARQL for advanced, context-aware queries, enabling more intelligent data discovery.",
+		tech: ["Next.js", "TypeScript", "SPARQL"],
+	},
+	{
+		title: "Medium Clone",
+		description:
+			"A full-stack clone of the Medium blogging platform, built with Laravel and Alpine.js. It mimics the core functionalities, offering a clean interface for writing and reading articles.",
+		tech: ["Laravel", "Alpine.js", "Blade"],
+	},
 ];
 
 export const services = [
 	{
-		title: "Frontend Architecture",
-		status: "Core Mastery",
-		desc: "My primary strength and playground. I specialize in building pixel-perfect, high-performance interfaces where aesthetics meet accessibility and speed.",
+		title: "JavaScript & TypeScript Development",
+		status: "Core Stack",
+		desc: "I build software across the JavaScript and TypeScript ecosystem, from web applications to backend services and APIs.",
 		icon: "file-type-html",
 		accent: "text-blue-600",
 		bg: "bg-blue-50/50 dark:bg-blue-900/10",
@@ -17,7 +55,7 @@ export const services = [
 	{
 		title: "Backend Development",
 		status: "Deepening Skills",
-		desc: "Expanding my logic beyond the UI. I am currently deepening my understanding of server-side architecture, API design, and robust database management.",
+		desc: "I continue to deepen my skills in server-side architecture, API design, and database management.",
 		icon: "brand-nodejs",
 		accent: "text-emerald-600",
 		bg: "bg-emerald-50/50 dark:bg-emerald-900/10",
@@ -25,7 +63,7 @@ export const services = [
 	{
 		title: "Cyber Security",
 		status: "Active Learning",
-		desc: "The new frontier. I'm exploring the security landscape to ensure that every digital experience I build is not only beautiful but also resilient and safe.",
+		desc: "I'm exploring application security to make the software I build more resilient and safe.",
 		icon: "shield-checkered",
 		accent: "text-orange-600",
 		bg: "bg-orange-50/50 dark:bg-orange-900/10",
@@ -34,56 +72,106 @@ export const services = [
 
 export const chapters = [
 	{
-		title: "The Genesis",
-		period: "2020 - 2021",
+		title: "Informatics Engineering",
+		period: "2021 - 2025",
 		description:
-			"It all started with a simple 'Hello World'. I fell in love with the immediate gratification of seeing code turn into pixels. My backpack was filled with the essentials: HTML, CSS, and the wild world of JavaScript.",
-		techs: ["html", "css", "javascript"],
+			"Graduated from Universitas Pembangunan Nasional 'Veteran' Jawa Timur with a final GPA of 3.86/4.00. Final project: a Semantic Web-based academic journal search application using ontology, RDF, and OWL.",
+		techs: ["Computer Science", "Semantic Web", "SPARQL", "RDF", "OWL"],
 	},
 	{
-		title: "The Awakening",
-		period: "2022 - 2024",
+		title: "Frontend Web Development Bootcamp",
+		period: "August - September 2022",
 		description:
-			"I realized that building for the web is about more than just making things work—it's about the experience. I dove deep into the React ecosystem and discovered the power of Tailwind CSS to build clean, scalable interfaces at lightning speed.",
-		techs: ["react", "nextjs", "tailwind"],
+			"Completed the CodePolitan x Catamyst bootcamp, learning frontend fundamentals and building web applications with React and Next.js in a team.",
+		techs: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
 	},
 	{
-		title: "The Current Horizon",
+		title: "AWS re/Start · Batch 13",
+		period: "October - December 2025",
+		description:
+			"Studied AWS infrastructure, including compute, storage, networking, and security, with hands-on learning supported by AI-driven training tools.",
+		techs: ["AWS", "Cloud", "Compute", "Storage", "Networking", "Security"],
+	},
+	{
+		title: "Software Engineer Bootcamp",
+		period: "April - May 2026",
+		description:
+			"Joined the Formulatrix bootcamp and built an integrated booking solution using Raspberry Pi as an IoT gateway to monitor and display meeting-room occupancy in real time.",
+		techs: ["Software Engineering", "IoT", "Raspberry Pi"],
+	},
+	{
+		title: "Current Focus",
 		period: "Present",
 		description:
-			"Nowadays, I'm obsessed with performance and motion. I use Astro for content-heavy sites and GSAP to add that 'magic' layer of interaction that makes users go 'wow'. Crafting digital stories, one frame at a time.",
-		techs: ["astro", "typescript", "gsap", "framer"],
+			"I build software across the JavaScript and TypeScript ecosystem, with AI assistants like OpenCode, Claude, and Codex supporting my development workflow.",
+		techs: ["JavaScript", "TypeScript", "OpenCode", "Claude", "Codex"],
 	},
 ];
 
 export const stacks = [
-	{ name: "React.js", icon: "react-2" },
-	{ name: "Tailwind", icon: "tailwind-css-2" },
-	{ name: "Astro", icon: "astrojs" },
-	{ name: "TypeScript", icon: "typescript" },
-	{ name: "Next.js", icon: "next-js" },
-	{ name: "Laravel", icon: "laravel-2" },
-	{ name: "Node.js", icon: "nodejs-icon" },
+	"JavaScript",
+	"TypeScript",
+	"React",
+	"Next.js",
+	"Vue",
+	"Nuxt",
+	"Node.js",
+	"Express.js",
+	"HTML",
+	"CSS",
+	"Laravel",
+	"C#",
+	".NET Core",
+	"Python",
+	"Git",
+	"Markdown",
+	"Figma",
+	"Docker",
+	"Bootstrap",
+	"Supabase",
+	"Chakra UI",
+	"Tailwind CSS",
+	"SPARQL",
+	"Protégé",
+	"Linux",
 ];
 
 export const experiences = [
 	{
+		company: "Badan Otorita Pengelola Pantai Utara Jawa (BOPPJ)",
+		role: "Information Technology Staff",
+		period: "June 2026 - December 2026",
+		type: "Contract",
+		description:
+			"Responsible for managing and maintaining the organization's IT infrastructure, ensuring smooth operations and optimal performance of systems. Involved in implementing new technologies and solutions to enhance efficiency and support organizational goals.",
+		skills: ["IT Infrastructure", "System Administration", "Network Management"],
+	},
+	{
 		company: "PT Santai Berkualitas Syberindo (Sanbercode)",
 		role: "Software Developer",
-		period: "2025 - 2026 (6 Months)",
+		period: "October 2025 - April 2026",
 		type: "Internship",
 		description:
-			"Developing a dedicated Islamic-based donation platform designed to facilitate social impact and charitable giving. Responsible for building robust features that streamline the donation process and ensure an accessible experience for users seeking to contribute to humanitarian causes.",
-		skills: ["Laravel", "Bootsrap", "jQuery"],
+			"Developed a donation crowdfunding website using Laravel across frontend and backend. Resolved critical bugs and implemented role-based access for administrators.",
+		skills: ["Laravel", "Frontend and backend", "Role-based access"],
 	},
 	{
 		company: "PT Aksamedia Mulia Digital (Aksamedia)",
-		role: "Frontend Engineer",
-		period: "2023 - 2024 (8 Months)",
-		type: "Internship + Contact",
+		role: "Frontend Developer",
+		period: "January - March 2024",
+		type: "Contract",
 		description:
-			"Developed and maintained a comprehensive Learning Management System (LMS) serving a wide educational spectrum from Kindergarten to Senior High School. Focused on building intuitive, student-centered interfaces and ensuring seamless navigation across diverse learning modules.",
-		skills: ["TypeScript", "React.js", "Chakra UI"],
+			"Built an academic information system for administrators, teachers, and students with React, TypeScript, and Chakra UI. Integrated third-party libraries and created reusable components and layouts.",
+		skills: ["React", "TypeScript", "Chakra UI", "API integration"],
+	},
+	{
+		company: "PT Aksamedia Mulia Digital (Aksamedia)",
+		role: "Frontend Developer",
+		period: "August - December 2023",
+		type: "Internship",
+		description:
+			"Integrated APIs into the web platform, fixed bugs, and implemented new features as part of the development team.",
+		skills: ["API integration", "Bug fixing", "Feature development"],
 	},
 ];
 

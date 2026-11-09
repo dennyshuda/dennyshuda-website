@@ -1,120 +1,64 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
+import { projects } from "../constant";
+import { cn } from "../lib/cn";
 
-const projects = [
-	{
-		title: "Portobit - Micro-SaaS Showcase Portfolio",
-		description:
-			"Portobit is a Software‑as‑a‑Service (SaaS) application for creating instant online portfolios.",
-		tech: ["Nuxt", "TypeScript", "Supabase"],
-		link: "#",
-		image: "bg-gradient-to-br from-blue-600 to-indigo-700",
-		size: "large",
-	},
-	{
-		title: "Indonesian Local Fake Data API",
-		description:
-			"The Indo Mock API is a Hono.js-based backend service designed to generate fake identity data specifically for the Indonesian context. It's especially useful for local developers for application testing, database seeding, or load testing with realistic data.",
-		tech: ["Hono", "Bun", "TypeScript"],
-		link: "#",
-		image: "bg-gradient-to-br from-emerald-400 to-teal-600",
-		size: "small",
-	},
-	{
-		title: "Mini Quiz Online Platform",
-		description:
-			"A modern, responsive, elegant web-based quiz platform application built using React Router v7 (Vite-based).",
-		tech: ["React Router v7", "TypeScript", "Tailwind"],
-		link: "#",
-		image: "bg-gradient-to-br from-purple-600 to-fuchsia-700",
-		size: "small",
-	},
-	{
-		title: "Prima Tehnik Lombok Rental Genset Website",
-		description:
-			"A sleek and professional company profile website for Prima Tehnik Lombok, a generator rental service. The site effectively showcases their range of services and makes it easy for customers to get in touch.",
-		tech: ["Next.js", "TypeScript", "Supabase"],
-		link: "#",
-		image: "bg-gradient-to-br from-orange-400 to-rose-500",
-		size: "medium",
-	},
-	{
-		title: "[Thesis] Semantic Web-Based Journal Repository",
-		description:
-			"A thesis project developing a journal repository using Semantic Web technologies. It leverages SPARQL for advanced, context-aware queries, enabling more intelligent data discovery.",
-		tech: ["Next.js", "TypeScript", "SPARQL"],
-		link: "#",
-		image: "bg-gradient-to-br from-slate-500 to-slate-700",
-		size: "medium",
-	},
-	{
-		title: "Medium Clone",
-		description:
-			"A full-stack clone of the Medium blogging platform, built with Laravel and Alpine.js. It mimics the core functionalities, offering a clean interface for writing and reading articles.",
-		tech: ["Laravel", "Alpine.js", "Blade"],
-		link: "#",
-		image: "bg-gradient-to-br from-yellow-400 to-amber-500",
-		size: "small",
-	},
-];
+const shell = "mx-auto w-[calc(100%-32px)] max-w-[1180px] min-[721px]:w-[calc(100%-48px)]";
+const eyebrow = "text-[11px] font-semibold uppercase tracking-[.16em] text-muted";
+const sectionTitle =
+	"m-0 font-display text-[clamp(38px,6vw,68px)] font-semibold uppercase leading-[.95] tracking-[-.025em]";
+const row =
+	"relative grid grid-cols-[40px_minmax(0,1fr)_auto] items-center gap-3 border-b border-line py-[21px] before:absolute before:inset-x-0 before:top-0 before:h-px before:origin-left before:scale-x-0 before:bg-accent before:transition-transform before:duration-200 hover:before:scale-x-100 min-[721px]:grid-cols-[70px_minmax(0,1fr)_minmax(190px,.7fr)_auto] min-[721px]:gap-6 min-[721px]:py-[27px]";
 ---
 
-<Layout title="Projects | Denny Setyawan Huda">
-	<main class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20">
-		<header class="max-w-3xl mb-20 animate-in fade-in slide-in-from-bottom-5 duration-1000">
-			<h1 class="text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-6">
-				Selected <span class="text-blue-600">Works.</span>
-			</h1>
-			<p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+<Layout title="Projects — Denny Setyawan Huda">
+	<main class={cn(shell, "min-h-[70vh] py-16 min-[721px]:py-[clamp(64px,9vw,120px)]")}>
+		<header class="mb-19 grid items-end gap-8 min-[721px]:grid-cols-[1.2fr_.8fr]">
+			<div>
+				<p class={eyebrow}>Selected work</p><h1
+					class="m-0 font-display text-[clamp(62px,11vw,132px)] font-semibold uppercase leading-[.86] tracking-[-.035em]"
+				>
+					Selected<br /><span class="text-accent">works.</span>
+				</h1>
+			</div>
+			<p class="m-0 max-w-107.5 text-[clamp(16px,1.6vw,19px)] leading-[1.75] text-muted">
 				A collection of digital products, experiments, and open-source contributions crafted with
 				precision and passion.
 			</p>
 		</header>
-
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+		<div class="flex items-end justify-between gap-6 border-b border-line pb-4.5">
+			<h2 class={sectionTitle}>Project index</h2><p class="m-0 text-[13px] text-muted">
+				{projects.length} projects
+			</p>
+		</div>
+		<div>
 			{
-				projects.map((project) => (
-					<a
-						href={project.link}
-						class={`group relative overflow-hidden rounded-[2.5rem] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl 
-          ${project.size === "large" ? "md:col-span-2" : ""} 
-          ${project.size === "medium" ? "lg:col-span-2" : ""}`}
-					>
-						<div
-							class={`absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 ${project.image}`}
-						/>
-
-						<div class="relative h-full p-8 flex flex-col justify-between">
-							<div class="flex justify-between items-start">
-								<div class="flex flex-wrap gap-2">
-									{project.tech.map((t) => (
-										<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-bold uppercase tracking-widest rounded-full">
-											{t}
-										</span>
-									))}
-								</div>
-							</div>
-
-							<div>
-								<h3 class="text-2xl font-black text-slate-900 dark:text-white mb-2 leading-tight">
-									{project.title}
-								</h3>
-								<p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2 max-w-md">
-									{project.description}
-								</p>
+				projects.map((project, index) => (
+					<article class={row} id={`project-${index + 1}`}>
+						<span class="font-display text-xl font-semibold text-accent">
+							{String(index + 1).padStart(2, "0")}
+						</span>
+						<h3 class="m-0 font-display text-[clamp(27px,3.4vw,42px)] font-semibold uppercase leading-[.98] tracking-[-.015em]">
+							{project.title}
+						</h3>
+						<div class="col-start-2 row-start-2 min-[721px]:col-auto min-[721px]:row-auto">
+							<p class="m-0 max-w-107.5 text-[13px] leading-[1.65] text-muted">
+								{project.description}
+							</p>
+							<div class="mt-3 flex flex-wrap gap-1.75">
+								{project.tech.map((tech) => (
+									<span class="text-[10px] uppercase tracking-[.06em] text-muted">{tech}</span>
+								))}
 							</div>
 						</div>
-					</a>
+						<span class="col-start-3 row-start-1 text-[11px] leading-[1.8] text-muted min-[721px]:col-auto min-[721px]:row-auto">
+							Case
+							<br />
+							{String(index + 1).padStart(2, "0")}
+						</span>
+					</article>
 				))
 			}
 		</div>
 	</main>
 </Layout>
-
-<style>
-	/* Efek Glassmorphism halus untuk card */
-	.group {
-		will-change: transform;
-	}
-</style>

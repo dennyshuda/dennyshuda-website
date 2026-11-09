@@ -1,183 +1,144 @@
 ---
-import { Icon } from "astro-icon/components";
-import { experiences, services, stacks } from "../constant";
 import Layout from "../layouts/Layout.astro";
+import { experiences, projects, services, stacks } from "../constant";
 import ExperienceItem from "../components/experience-item.astro";
+import { cn } from "../lib/cn";
+
+const shell = "mx-auto w-[calc(100%-32px)] max-w-[1180px] min-[721px]:w-[calc(100%-48px)]";
+const eyebrow = "text-[11px] font-semibold uppercase tracking-[.16em] text-muted";
+const sectionTitle =
+	"m-0 font-display text-[clamp(38px,6vw,68px)] font-semibold uppercase leading-[.95] tracking-[-.025em]";
+const projectRow =
+	"group relative grid grid-cols-[40px_minmax(0,1fr)_auto] items-center gap-3 border-b border-line py-[21px] transition-transform duration-200 before:absolute before:inset-x-0 before:top-0 before:h-px before:origin-left before:scale-x-0 before:bg-accent before:transition-transform before:duration-200 hover:translate-x-1 hover:before:scale-x-100 focus-visible:translate-x-1 focus-visible:before:scale-x-100 motion-reduce:transition-none min-[721px]:grid-cols-[70px_minmax(0,1fr)_minmax(190px,.7fr)_auto] min-[721px]:gap-6 min-[721px]:py-[27px] min-[721px]:hover:translate-x-2 min-[721px]:focus-visible:translate-x-2";
+const button =
+	"inline-flex items-center gap-3 border px-[17px] py-[13px] text-[13px] font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent motion-reduce:transition-none";
 ---
 
-<Layout title="Software Developer | Denny Setyawan Huda">
-	<main class="relative z-10 max-w-4xl mx-auto px-6 pt-28 pb-20">
-		<section>
-			<span
-				class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 text-xs font-bold tracking-widest uppercase duration-1000"
-			>
-				📍 Based in Surabaya • Remote Friendly
-			</span>
-
-			<h1
-				class="text-6xl md:text-8xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-8 duration-500 delay-150"
-			>
-				Hi, I'm <span
-					class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 via-indigo-500 to-emerald-500"
-					>Denny Setyawan Huda</span
+<Layout title="Denny Setyawan Huda — Software Developer">
+	<main class="min-h-[70vh]">
+		<section
+			class={cn(
+				shell,
+				"grid items-end gap-8 py-16 min-[721px]:grid-cols-[1.2fr_.8fr] min-[721px]:gap-[clamp(32px,7vw,92px)] min-[721px]:py-[clamp(64px,9vw,120px)]",
+			)}
+		>
+			<div>
+				<p class={eyebrow}>Software developer · Jakarta, Indonesia</p>
+				<h1
+					class="m-0 font-display text-[clamp(62px,11vw,132px)] font-semibold uppercase leading-[.86] tracking-[-.035em]"
 				>
-			</h1>
-
-			<div class="flex flex-col md:flex-row md:items-end gap-6 md:gap-12 duration-500 delay-300">
-				<div class="relative">
-					<h2
-						class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-200 z-10 relative"
-					>
-						Software Developer
-					</h2>
-					<div
-						class="absolute -bottom-2 -left-2 w-full h-4 bg-emerald-100 dark:bg-emerald-900/30 z-0 rotate-1"
-					>
-					</div>
-				</div>
-
-				<p
-					class="text-lg text-slate-500 dark:text-slate-400 max-w-md leading-relaxed border-l-2 border-blue-600 pl-6 md:mb-1"
-				>
-					Frontend sorcerer by day, security explorer by night. Building seamless web experiences
-					that are fast, beautiful, and resilient. Currently weaving magic from Indonesia to the
-					world.
-				</p>
+					Denny<br /><span class="text-accent">Setyawan</span><br />Huda
+				</h1>
 			</div>
-
-			<div class="mt-12 flex items-center gap-6 duration-1000 delay-500">
-				<a
-					href="/contact"
-					class="flex items-center gap-2 font-bold text-slate-900 dark:text-white group"
-				>
-					Let's Talk
-					<span class="group-hover:translate-x-2 transition-transform duration-300">→</span>
-				</a>
-				<div class="h-1 w-1 rounded-full bg-slate-300"></div>
-				<a href="/cv.pdf" class="text-slate-500 hover:text-blue-600 transition-colors"
-					>Download CV</a
-				>
+			<div class="max-w-107.5 text-[clamp(16px,1.6vw,19px)] leading-[1.75] text-muted">
+				<p class="mb-6.5 mt-0">
+					I’m a software developer working across the JavaScript and TypeScript ecosystem. I use AI
+					assistants like OpenCode, Claude, and Codex as part of my development workflow.
+				</p>
+				<div class="flex flex-wrap items-center gap-3">
+					<a
+						class={cn(button, "border-accent bg-accent text-white hover:brightness-90")}
+						href="/projects">Explore selected work <span aria-hidden="true">↗</span></a
+					>
+					<a class={cn(button, "border-ink text-ink hover:bg-ink hover:text-paper")} href="/contact"
+						>Get in touch <span aria-hidden="true">→</span></a
+					>
+					<a
+						class="text-[13px] text-muted underline-offset-4 hover:text-ink hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+						href="/cv.pdf"
+						download>Download CV ↓</a
+					>
+				</div>
+				<p class={cn(eyebrow, "mt-5.5")}>Remote friendly</p>
 			</div>
 		</section>
 
-		<section class="py-24">
-			<div class="flex items-center gap-4 mb-12">
-				<h2 class="text-3xl font-black text-slate-900 dark:text-white">What I Do</h2>
-				<div class="h-px grow bg-slate-200 dark:bg-slate-800"></div>
+		<section class={shell} aria-labelledby="work-heading">
+			<div
+				class="flex flex-col items-start justify-between gap-4 border-b border-line pb-4.5 min-[721px]:flex-row min-[721px]:items-end"
+			>
+				<div>
+					<p class={eyebrow}>Selected work</p><h2 class={sectionTitle} id="work-heading">
+						Built with intent.
+					</h2>
+				</div>
+				<a
+					class="text-[13px] text-muted hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+					href="/projects">View all projects ↗</a
+				>
 			</div>
-
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+			<div>
 				{
-					services.map((service) => (
-						<div class="group relative p-8 rounded-[2.5rem] bg-transparent border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-							<span
-								class={`inline-block px-3 py-1 mb-6 rounded-full text-[10px] font-black uppercase tracking-[0.2em] ${service.bg} ${service.accent}`}
-							>
-								{service.status}
-							</span>
-
-							<div
-								class={`mb-6 text-4xl transition-transform duration-500 group-hover:scale-110 ${service.accent}`}
-							>
-								<Icon name={service.icon} />
-							</div>
-
-							<h3 class="text-2xl font-black text-slate-900 dark:text-white mb-4 leading-tight">
-								{service.title}
+					projects.slice(0, 3).map((project, index) => (
+						<a class={projectRow} href={`/projects#project-${index + 1}`}>
+							<span class="font-display text-xl font-semibold text-accent">0{index + 1}</span>
+							<h3 class="m-0 font-display text-[clamp(27px,3.4vw,42px)] font-semibold uppercase leading-[.98] tracking-[-.015em]">
+								{project.title}
 							</h3>
-
-							<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 italic">
-								{service.desc}
+							<p class="col-start-2 row-start-2 m-0 max-w-107.5 text-[13px] leading-[1.65] text-muted min-[721px]:col-auto min-[721px]:row-auto">
+								{project.description}
 							</p>
-						</div>
+							<span class="col-start-3 row-start-1 text-[22px] text-accent transition-transform duration-200 group-hover:translate-x-0.75 group-hover:-translate-y-0.75 motion-reduce:transition-none">
+								↗
+							</span>
+						</a>
 					))
 				}
 			</div>
 		</section>
 
-		<section class="mb-32 mt-10">
-			<div class="flex items-center gap-4 mb-12">
-				<h2 class="text-3xl font-black text-slate-900 dark:text-white">Tech Stack</h2>
-				<div class="h-px grow bg-slate-200 dark:bg-slate-800"></div>
+		<section
+			class={cn(
+				shell,
+				"grid gap-8 py-[clamp(64px,9vw,120px)] min-[721px]:grid-cols-[.7fr_1.3fr] min-[721px]:gap-[clamp(32px,8vw,110px)]",
+			)}
+		>
+			<div>
+				<p class={eyebrow}>How I work</p><h2 class={sectionTitle}>
+					A thoughtful<br />digital craft.
+				</h2>
 			</div>
-
-			<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-				Through my journey as a developer, I've explored various tools and technologies. This is my <span
-					class="text-blue-600 font-bold italic">ever growing ecosystem</span
-				> a mix of stacks I use daily, technologies I've mastered, and frameworks I've familiarized myself
-				with to build seamless digital experiences.
-			</p>
-
-			<div class="relative py-10 overflow-hidden -mx-6">
-				<div
-					class="absolute inset-y-0 left-0 w-24 md:w-48 bg-linear-to-r from-white dark:from-[#111] to-transparent z-10 pointer-events-none"
-				>
-				</div>
-				<div
-					class="absolute inset-y-0 right-0 w-24 md:w-48 bg-linear-to-l from-white dark:from-[#111] to-transparent z-10 pointer-events-none"
-				>
-				</div>
-
-				<div
-					class="flex w-fit animate-[marquee_50s_linear_infinite] hover:[animation-play-state:paused]"
-				>
+			<div>
+				<p class="m-0 max-w-130 text-base leading-[1.8] text-muted">
+					I build digital experiences with care for the details that make them useful, clear, and
+					resilient.
+				</p>
+				<div class="mt-8 grid gap-6 min-[721px]:grid-cols-3 min-[721px]:gap-6">
 					{
-						[1, 2].map(() => (
-							<div class="flex items-center gap-8 px-4">
-								{stacks.map((tech) => (
-									<div class="group flex items-center gap-4 px-6 py-4 transition-all duration-500 hover:scale-105 hover:border-blue-500/50">
-										<div class="group-hover:grayscale-0 transition-all duration-500">
-											<Icon name={tech.icon} class="text-3xl md:text-4xl" />
-										</div>
-										<span class="text-lg md:text-xl font-bold tracking-tighter text-slate-400 dark:text-slate-500 transition-colors">
-											{tech.name}
-										</span>
-									</div>
-								))}
-							</div>
+						services.map((service) => (
+							<article class="border-t-2 border-ink pt-3.75">
+								<p class={eyebrow}>{service.status}</p>
+								<h3 class="mb-2.5 mt-0 font-display text-[27px] font-semibold uppercase leading-none">
+									{service.title}
+								</h3>
+								<p class="m-0 text-[13px] leading-[1.7] text-muted">{service.desc}</p>
+							</article>
 						))
 					}
 				</div>
 			</div>
-
-			<p class="mt-8 text-sm text-slate-400 dark:text-slate-500 italic text-center md:text-left">
-				* Always curious, always learning. Currently exploring new ways to optimize web performance.
-			</p>
 		</section>
 
-		<section class="mb-32">
-			<div class="flex items-center gap-4 mb-12">
-				<h2 class="text-3xl font-black text-slate-900 dark:text-white">Experience Journey</h2>
-				<div class="h-px grow bg-slate-200 dark:bg-slate-800"></div>
+		<section class={cn(shell, "pb-[clamp(64px,9vw,120px)]")}>
+			<div class="border-b border-line pb-4.5">
+				<p class={eyebrow}>Experience</p><h2 class={sectionTitle}>The journey so far.</h2>
 			</div>
+			<div class="border-t border-line">
+				{experiences.map((exp) => <ExperienceItem exp={exp} />)}
+			</div>
+		</section>
 
-			<div class="relative">
-				<div
-					class="absolute left-2.75 md:left-38.25 top-2 bottom-2 w-0.5 bg-linear-to-b from-blue-600 via-slate-200 to-slate-100 dark:via-slate-800 dark:to-slate-900"
-				>
-				</div>
-
-				<div class="space-y-12">
-					{experiences.map((exp) => <ExperienceItem exp={exp} />)}
-				</div>
+		<section class={cn(shell, "pb-22.5")}>
+			<div class="border-b border-line pb-4.5">
+				<p class={eyebrow}>Tools of the trade</p><h2 class={sectionTitle}>Technology I use.</h2>
+			</div>
+			<div class="flex flex-wrap gap-4 pt-6">
+				{
+					stacks.map((tech) => (
+						<span class="text-[11px] uppercase tracking-[.06em] text-muted">{tech}</span>
+					))
+				}
 			</div>
 		</section>
 	</main>
 </Layout>
-
-<style>
-	@keyframes marquee {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-50%);
-		}
-	}
-	.animate-marquee {
-		animation: marquee 30s linear infinite;
-		&:hover {
-			animation-play-state: paused;
-		}
-	}
-</style>
