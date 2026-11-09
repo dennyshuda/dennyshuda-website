@@ -2,44 +2,31 @@
 import Footer from "../components/footer.astro";
 import Navigation from "../components/navigation.astro";
 import "../styles/global.css";
+
+interface Props { title?: string }
+const { title = "Denny Setyawan Huda — Software Developer" } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Denny Setyawan Huda</title>
+		<meta name="theme-color" content="#f4f2ec" />
+		<title>{title}</title>
 	</head>
-	<body class="min-h-screen flex flex-col bg-dot">
+	<body>
 		<Navigation />
-
-		<main class="min-h-screen dark:bg-dark">
-			<slot />
-		</main>
-
+		<slot />
 		<Footer />
 	</body>
 </html>
 
 <script is:inline>
-	const theme = (() => {
-		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-			return localStorage.getItem("theme");
-		}
-		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-			return "dark";
-		}
-		return "light";
-	})();
-
-	if (theme === "light") {
-		document.documentElement.classList.remove("dark");
-	} else {
-		document.documentElement.classList.add("dark");
-	}
-
-	window.localStorage.setItem("theme", theme);
+	const savedTheme = localStorage.getItem("theme");
+	const theme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+	document.documentElement.classList.toggle("dark", theme === "dark");
+	document.querySelector("#theme-toggle")?.setAttribute("aria-label", theme === "dark" ? "Use light theme" : "Use dark theme");
 </script>
